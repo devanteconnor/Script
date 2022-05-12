@@ -1,0 +1,55 @@
+select *
+from actor
+WHERE last_name= 'Wahlberg'
+
+
+--Q2
+select count(payment_id)
+from payment
+where amount between 3.99 and 5.99;
+
+--Q3
+select film_id, count(film_id)
+from inventory
+group by film_id 
+order by count(film_id) desc;
+
+--Q4
+select count(last_name)
+from customer
+where last_name like 'william';
+
+--Q5
+select staff_id, count(staff_id)
+from rental
+group by staff_id
+order by count(staff_id) desc;
+
+--Q6
+select district, count(district)
+from address
+group by district;
+
+--Q7
+select film_id, count(film_id)
+from film_actor
+group by film_id
+order by count(film_id) desc limit 1;
+
+--Q8
+select *
+from customer
+where store_id=1 and last_name like '%es';
+
+--Q9
+select amount, count(amount)
+from payment
+where customer_id between 380 and 430
+group by amount 
+having count(amount) > 250;
+
+--Q10
+select rating, count(film_id)
+from film
+group by rating
+order by count(film_id) desc;
